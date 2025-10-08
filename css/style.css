@@ -6,8 +6,12 @@
 
 body {
     font-family: "Jost", sans-serif;
-    background-color: #0d1117; /* خلفية داكنة */
-    color: #ffffff; /* نصوص بيضاء */
+    background-image: linear-gradient(90deg, #071426, #0b0f14);
+    color: #ffffff;
+}
+
+.pramiry-color {
+    color: #1fb6ff;
 }
 
 a {
@@ -20,7 +24,7 @@ ul {
     text-transform: capitalize;
 }
 .pd-section {
-    padding: 30px 0;
+    padding: 60px 0;
 }
 .flex {
     display: flex;
@@ -34,7 +38,7 @@ ul {
 
 /* start header */
 .header-nav {
-    box-shadow: 0 0 1px 1px #a99f9f;
+    box-shadow: 1px 1px 2px #00000070, -1px -1px 2px #00000070;
 }
 header .flex {
     height: 30px;
@@ -49,7 +53,6 @@ header .flex {
     position: relative;
     padding: 0px 10px;
     font-size: 14px;
-    /* font-weight: bold; */
 }
 .header-nav .links li a::after {
     position: absolute;
@@ -59,7 +62,7 @@ header .flex {
     content: "";
     width: 2px;
     height: 0;
-    background-color: #2563eb;
+    background-color: #1fb6ff;
     transition: 1s;
 }
 
@@ -71,7 +74,7 @@ header .flex {
     content: "";
     width: 2px;
     height: 0;
-    background-color: #2563eb;
+    background-color: #1fb6ff;
     transition: 1s;
 }
 
@@ -82,11 +85,22 @@ header .flex {
 .header-nav .links li a:hover::before {
     height: 100%;
 }
+.header-nav .links li a:hover {
+    color: #1fb6ff;
+}
+
+.header-nav .links li a:hover i {
+    transition: 0.5s;
+}
+.header-nav .links li a:hover i {
+    transform: rotateY(180deg);
+}
 
 /* start nav */
-nav {
-    background-color: #1e1e1e;
-    color: #ffffff;
+
+.logo {
+    font-size: 40px;
+    text-transform: uppercase;
 }
 nav .flex {
     padding: 40px 0;
@@ -96,55 +110,46 @@ nav .links {
     gap: 20px;
     font-size: 18px;
 }
-nav .links > li > a {
+nav .links > li {
     position: relative;
+    display: block;
+    padding: 10px;
 }
-nav .links > li > a::after {
+nav .links > li::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -1px;
+    width: 101%;
+    height: 100%;
+    border: 2px solid #1fb6ff;
+    border-right: 0;
+    border-left: 0;
+    transition: 1s;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+nav .links > li::before {
+    content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
-    content: "";
-    width: 0;
-    height: 0;
-    background-color: red;
-    border-width: 2px 0;
-
-    transition: 1s;
-    /* border-width: 0px; */
-    /* border-top: 0px ; */
-
-    transform: scale(1, 0);
-    transform-origin: bottom;
-
-    /* border-width: 0; */
-    /* border-width: 0 2px;
-    width: 94%;
+    left: -1px;
+    width: 98%;
     height: 100%;
-    transition: 0.3s;
-    transform: scale(1, 0);
-    transform-origin: bottom; */
-}
-/* nav .links li a::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: "";
-    width: 0;
-    height: 2px;
-    background-color: aqua;
+    border: 2px solid #1fb6ff;
+    border-bottom: 0;
+    border-top: 0;
     transition: 1s;
-} */
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
 
-nav .links > li > a:hover::after {
-    /* width: 100px;
-    height: 100px; */
-    /* transform: scale(0, 1); */
-    /* border-width: 1px 2px; */
-    /* border: 10px solid; */
+nav .links > li:hover::after {
+    transform: scaleX(1);
+}
 
-    /* transform: scale(1, 1); */
-
-    /* height: 2px; */
+nav .links > li:hover::before {
+    transform: scaleY(1);
 }
 
 .dropMenuBtn {
@@ -176,30 +181,56 @@ nav .links > li > a:hover::after {
 }
 .dropMenu li a:hover {
     display: block;
-    color: #2563eb;
+    color: #1fb6ff;
     transform: scale(1.1);
 }
 .dropMenu-title {
     display: inline-block;
-    border-bottom: 1px dotted #2563eb;
+    border-bottom: 1px dotted #1fb6ff;
     margin-bottom: 10px;
 }
-.items {
+.cart {
+    position: relative;
+}
+
+.cart span {
+    position: absolute;
+    top: -18px;
+    left: 1px;
+    background: #1fb6ff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: 0.2s;
+}
+.third-part {
     display: flex;
     gap: 30px;
     font-size: 18px;
 }
 
+.third-part i:hover {
+    color: #1fb6ff;
+    cursor: pointer;
+}
+
+.third-part .cart i:hover ~ span {
+    transform: translateY(-3px);
+}
+
 .discount {
-    background-color: #ef4444;
-    /* أحمر للتخفيضات */
+    background-color: #1fb6ff;
     color: #ffffff;
     text-align: center;
     padding: 10px 0;
 }
 
 .shop-now {
-    color: #1e1e1e;
+    color: #003366;
     position: relative;
     transition: 0.2s;
     cursor: pointer;
@@ -213,8 +244,9 @@ nav .links > li > a:hover::after {
     content: "";
     width: 100%;
     height: 2px;
-    background-color: #1e1e1e;
+    background-color: #003366;
 }
+
 .shop-now:hover {
     letter-spacing: 2px;
 }
@@ -222,6 +254,7 @@ nav .links > li > a:hover::after {
 img {
     width: 100%;
     min-height: 100%;
+    object-fit: cover;
 }
 main .flex {
     gap: 100px;
@@ -229,38 +262,32 @@ main .flex {
 .main-info {
     width: 50%;
     text-align: center;
-    /* margin-right: 20px; */
+    text-transform: capitalize;
 }
-main h2 {
-}
+
 main h1 {
     font-size: 40px;
 }
 main p {
     margin: 20px 0;
+    color: #9ca3af;
 }
 .btn-primary {
-    background-color: #2563eb;
+    background-color: #1fb6ff;
     color: #ffffff;
     border: none;
-    /* width: 200px; */
     padding: 20px;
     text-transform: uppercase;
-    /* font-weight: bold; */
     font-family: "Jost", sans-serif;
     font-size: 20px;
 }
 
 .btn-primary:hover {
-    background-color: #1d4ed8;
+    background-color: #1fb4ffa6;
 }
 
 .highlight {
-    color: #22c55e;
-}
-
-.section-title {
-    color: #8b5cf6;
+    color: #9ca3af;
 }
 
 /* start category */
@@ -270,9 +297,8 @@ main p {
     width: 400px;
     height: 400px;
     padding: 10px;
-    /* background-color: #1d4ed8; */
     overflow: hidden;
-    border: 1px solid #1d4ed8;
+    box-shadow: 0px 0px 10px#071426 inset;
 }
 
 .category-items img {
@@ -281,25 +307,374 @@ main p {
     height: 100%;
     top: 0;
     left: 0;
-    transition: 1s;
+    z-index: 1;
+    transition: transform 1s;
 }
+
 .category-info {
     position: absolute;
     width: 100%;
     text-align: center;
-    bottom: -23px;
+    bottom: -40px;
     left: 0;
+    z-index: 2;
+    background-image: linear-gradient(to top, #000000, #00000005);
+    padding: 15px 0;
     transition: 1s;
-    background-color: #ef444448;
-}
-.category-items:hover .category-info {
-    bottom: 0;
 }
 
+.category-info h2 {
+    margin-bottom: 15px;
+}
+
+.category-info .shop-now {
+    color: #1fb6ff;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    mix-blend-mode: screen;
+}
+
+.category-info .shop-now:after {
+    background-color: #1fb6ff;
+}
+
+.category-items:hover .category-info {
+    bottom: 0px;
+}
 .category-items:hover img {
     transform: scale(1.1);
 }
+/* start trending */
 
-.category-items .shop-now {
-    color: #ef4444;
+ul.category {
+    display: flex;
+    gap: 30px;
+    font-size: 20px;
+}
+ul.category li {
+    padding-bottom: 30px;
+}
+.section-title {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.trending .flex {
+    align-items: stretch;
+    gap: 20px;
+}
+
+.third-category {
+    border-bottom: 6px solid #1fb6ff;
+}
+
+.items {
+    position: relative;
+    width: 25%;
+    transition: 0.5s;
+}
+.items:hover .icon {
+    bottom: 40px;
+}
+
+.items:hover .info h3 {
+    color: #1fb6ff;
+}
+
+.items .parent {
+    position: relative;
+    overflow: hidden;
+}
+
+.items .image {
+    width: 100%;
+    height: 300px;
+}
+
+.trending img {
+    object-fit: contain;
+    transition: 0.5s;
+}
+
+.trending .items:hover img {
+    transform: scale(1.1);
+}
+
+.info {
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 20px;
+}
+.info p {
+    margin-top: 20px;
+}
+.info a {
+    text-decoration: underline;
+    display: inline-block;
+    transition: 0.5s;
+}
+.info a:hover {
+    transform: scale(1.1);
+
+    transform-origin: center;
+}
+del {
+    margin-left: 15px;
+}
+.icon {
+    display: flex;
+
+    position: absolute;
+    bottom: -50px;
+    background-color: #1fb6ff;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: 1s;
+    z-index: 88;
+}
+.icon a {
+    display: block;
+    font-size: 20px;
+
+    padding: 10px;
+    transition: 0.5s;
+}
+.icon a:hover {
+    background-color: rgba(11, 15, 20, 0.404);
+}
+
+/* start testimonial */
+
+.testimonial {
+    background-color: #003366;
+    position: relative;
+    box-shadow: 1px 1px 5px white, -1px -1px 5px wheat;
+}
+.title {
+    text-align: center;
+    font-size: 40px;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+}
+
+.testimonial p {
+    color: #ffffffef;
+}
+.opinion {
+    text-align: center;
+    font-size: 20px;
+    width: 30%;
+    margin: 40px auto;
+}
+.testimonial .flex {
+    justify-content: center;
+    gap: 20px;
+}
+
+.testimonial .flex h3 {
+    margin-bottom: 20px;
+}
+.testimonial .image {
+    width: 100px;
+    height: 100px;
+}
+.testimonial img {
+    border-radius: 50%;
+}
+.arrows {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: 0;
+    font-size: 25px;
+    padding: 0 50px;
+}
+.arrows i:hover {
+    color: #1fb6ff;
+    cursor: pointer;
+}
+.recommendation,
+.trending {
+    position: relative;
+}
+.recommendation .flex {
+    gap: 20px;
+}
+.recommendation img {
+    object-fit: contain;
+    transition: 0.5s;
+}
+
+.recommendation .items:hover img {
+    transform: scale(1.1);
+}
+
+/* start news */
+
+.news {
+    box-shadow: 0 0 1px 1px #a99f9f;
+}
+.news .items {
+    width: 31%;
+}
+.news .items img {
+    transition: 0.5s;
+    object-fit: cover;
+}
+
+.news .items .image {
+    height: 450px;
+}
+.news .items img:hover {
+    transform: scale(1.1);
+}
+
+.news .info {
+    text-align: start;
+    font-size: 20px;
+}
+
+.news .info p {
+    margin: 30px 0;
+    color: #ffffffe8;
+}
+.news .info h5 {
+    margin-bottom: 20px;
+    color: #ffffffe8;
+}
+
+/* start features */
+.feature-item {
+    text-align: center;
+}
+
+.feature-item i {
+    font-size: 50px;
+    color: #1fb6ff;
+}
+
+.feature-item h2 {
+    margin: 15px;
+}
+
+/* start footer */
+
+.footer {
+    background-color: #003366;
+}
+footer .flex {
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+}
+
+footer .flex h2 {
+    margin-bottom: 15px;
+}
+.email {
+    display: flex;
+    gap: 10px;
+}
+.email input {
+    padding: 10px;
+    outline: none;
+    border: none;
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.email .subscribe {
+    background-color: #1fb6ff;
+    height: 50px;
+    border: 0;
+    width: 150px;
+    font-size: 20px;
+    color: white;
+    font-family: "Jost", sans-serif;
+    text-transform: capitalize;
+}
+
+.footer-social {
+    display: flex;
+    gap: 14px;
+}
+.footer-social i {
+    font-size: 25px;
+    transition: 0.4s;
+    mix-blend-mode: screen;
+}
+
+.footer-social i:hover {
+    transform: scale(1.1);
+    color: #1fb6ff;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+    border-bottom: 1px solid white;
+}
+
+.footer-links-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links-item li:first-of-type {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-links-item li {
+    margin-bottom: 20px;
+}
+.footer-links-item li a {
+    display: inline-block;
+    transition: 0.3s;
+}
+.footer-links-item li a:hover {
+    transform: scale(1.1);
+    text-decoration: underline;
+}
+
+.footer-links-item li:first-child {
+    transform: scale(1);
+    text-decoration: none;
+}
+
+footer .Copyright {
+    text-align: center;
+    padding: 20px;
+}
+footer .Copyright i {
+    animation: heart infinite 0.5s alternate;
+}
+footer .Copyright a {
+    color: #1fb6ff;
+    transition: 0.4s;
+}
+
+footer .Copyright a:hover {
+    letter-spacing: 1px;
+    text-decoration: underline;
+}
+
+@keyframes heart {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+        color: red;
+    }
 }
