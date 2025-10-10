@@ -559,7 +559,61 @@ del {
 .feature-item {
     text-align: center;
 }
+.feature-icon {
+    position: relative;
+    overflow: hidden;
+    height: 70px;
+}
+.feature-icon .fa-truck:first-child,
+.fa-money-bill-wave:first-child {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
 
+.feature-icon .fa-truck:last-child,
+.fa-money-bill-wave:last-child {
+    position: absolute;
+    left: -50%;
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.feature-icon .fa-money-check-alt:first-child,
+.fa-user-clock:first-child {
+    position: absolute;
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.feature-icon .fa-money-check-alt:last-child,
+.fa-user-clock:last-child {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+.feature-item:hover .feature-icon .fa-truck:first-child,
+.feature-item:hover .feature-icon .fa-money-bill-wave:first-child {
+    left: 150%;
+}
+.feature-item:hover .feature-icon .fa-truck:last-child,
+.feature-item:hover .feature-icon .fa-money-bill-wave:last-child {
+    left: 50%;
+}
+.feature-item:hover .feature-icon .fa-money-check-alt:first-child,
+.feature-item:hover .feature-icon .fa-user-clock:first-child {
+    top: -100%;
+}
+.feature-item:hover .feature-icon .fa-money-check-alt:last-child,
+.feature-item:hover .feature-icon .fa-user-clock:last-child {
+    top: 0;
+}
 .feature-item i {
     font-size: 50px;
     color: #1fb6ff;
