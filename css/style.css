@@ -85,7 +85,10 @@ header .flex {
 .header-nav .links li a:hover::before {
     height: 100%;
 }
-.header-nav .links li a:hover {
+.header-nav .links li i {
+    transition: 0.5s;
+}
+.header-nav .links li:hover i {
     color: #1fb6ff;
 }
 
