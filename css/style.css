@@ -562,7 +562,7 @@ del {
 .feature-icon {
     position: relative;
     overflow: hidden;
-    height: 50px;
+    height: 60px;
 }
 .feature-icon .fa-truck:first-child,
 .fa-money-bill-wave:first-child {
